@@ -270,27 +270,24 @@ public class Game_Controller implements Initializable {
             // Loop through spaceship image
             for (int i = 0; i < sw; i++) {
                 for (int j = 0; j < sh; j++) {
-                    // Get the color or ARGB value of the pixel at (i, j) in the first image
+                    //color in first image
                     Color c1 = spaceshipPIXELS.getColor(i, j);
                     int argb1 = spaceshipPIXELS.getArgb(i, j);
 
-                    // Calculate the corresponding pixel coordinates in the second image
+                    //pixel coordinates in second image
                     int i2 = (int) (i + sPOSX - aPOSX);
                     int j2 = (int) (j + sPOSY - aPOSY);
 
 
-                    // Check if the coordinates are within the bounds of the second image
-                    if (i2 >= 0 && i2 < aw && j2 >= 0 && j2 < ah) {
-                        // Get the color or ARGB value of the pixel at (i2, j2) in the second image
+                    //if within bounds of second image
+                    if (i2 >= 0 && i2 < aw && j2 >= 0 && j2 < ah) { //get color of 2nd img
                         Color c2 = asteroidPIXELS.getColor(i2, j2);
                          int argb2 = asteroidPIXELS.getArgb(i2, j2);
 
-                        // Compare the colors or ARGB values of both pixels
-                        // You can use any criteria you want, such as alpha value, brightness, etc.
-                        // Here we use a simple equality check
+                        //compare colors of both pixels
                         if (c1.equals(c2)) {
 //                        if(argb1 == argb2){
-                            // If the colors or ARGB values are equal, then there is a collision
+                            // collision
                             collide = true;
                             collisions++;
                             System.out.println("COLLIISION");
